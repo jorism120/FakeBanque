@@ -1,5 +1,8 @@
 package com.exerice.fakebanque.model.account;
 
+import lombok.Data;
+
+@Data
 public abstract class Account {
     public String iban;
     public double balance;
