@@ -1,0 +1,5 @@
+server:
+  port: 9001
+
+jwt:
+  secret: "change-me-change-me-change-me-change-me"

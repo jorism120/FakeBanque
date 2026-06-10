@@ -1,0 +1,12 @@
+
+l
+java:S1128
+"VRemove this unused import 'org.springframework.security.oauth2.jose.jws.MacAlgorithm'.(ðå…†
+W
+java:S1128"<Remove this unused import 'javax.crypto.spec.SecretKeySpec'.(¹«è•üÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'com.nimbusds.jose.jwk.source.ImmutableSecret'.(‘ô«úøÿÿÿÿ
+B
+java:S1612",Replace this lambda with a method reference.(÷ÃÆâ
+I
+java:S1068".Remove this unused "SECRET_KEY" private field.(ìƒåÍýÿÿÿÿ

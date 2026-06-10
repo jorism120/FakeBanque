@@ -1,0 +1,27 @@
+
+j
+:auth-service/src/main/java/com/example/auth/JwtConfig.java,6\4\648f2814385acc353937a597418fe1b630d68460
+C
+api-gateway/pom.xml,2\b\2bfa2b108f2439e99e004f4085b58c22cf995f73
+D
+auth-service/pom.xml,7\f\7f617cadbbc161fc020296c3a971388d61795426
+D
+bank-service/pom.xml,7\5\75d7d1e0183335880611360fb79c353afd17b847
+u
+Eapi-gateway/src/main/java/com/example/gateway/GatewayApplication.java,0\a\0af1d7e92daf1d442bbd4f59263a5248388cd1b5
+p
+@bank-service/src/main/java/com/example/bank/BankApplication.java,7\a\7aa94a5c84a3a4b02f5feecbd51f3514f6993c15
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+p
+@auth-service/src/main/java/com/example/auth/AuthApplication.java,7\6\762fc08a3737da5a5ee6c51ba8d66dad8cd97f29
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+o
+?auth-service/src/main/java/com/example/auth/AuthController.java,0\d\0df6491dcc1fc11860e5b445727f568a180ea511
+x
+Hapi-gateway/src/main/java/com/example/gateway/GatewaySecurityConfig.java,a\4\a4d5e03888d235073715fef2dd51f6cabc940a2d
+v
+Fauth-service/src/main/java/com/example/auth/config/SecurityConfig.java,f\f\ffeb29cf820cf4469af4e727245c1a43fd6e4ab2
+o
+?bank-service/src/main/java/com/example/bank/SecurityConfig.java,9\f\9f5126b2cb1bda554de35d98573dd1879c219977
