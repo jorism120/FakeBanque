@@ -1,4 +1,4 @@
-package com.example.bank;
+package com.example.bank.adapter.in.rest;
 
 import java.util.List;
 

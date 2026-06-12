@@ -1,6 +1,6 @@
-package com.example.bank.controller;
+package com.example.bank.adapter.in.rest;
 
-import com.example.bank.service.AccountService;
+import com.example.bank.application.service.AccountService;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/accounts")

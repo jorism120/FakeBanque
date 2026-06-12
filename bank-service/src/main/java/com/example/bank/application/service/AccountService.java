@@ -1,15 +1,16 @@
-package com.example.bank.service;
+package com.example.bank.application.service;
 
-import com.example.bank.repository.CurrentAccountRepository;
-import com.example.bank.repository.HousingSavingPlanRepository;
-import com.example.bank.repository.SavingsAccountRepository;
+import com.example.bank.domain.port.in.AccountUseCase;
+import com.example.bank.domain.port.out.CurrentAccountRepository;
+import com.example.bank.domain.port.out.HousingSavingPlanRepository;
+import com.example.bank.domain.port.out.SavingsAccountRepository;
 import org.springframework.stereotype.Service;
 
 
 import java.io.IOException;
 
 @Service
-public class AccountService {
+public class AccountService implements AccountUseCase {
     private final CurrentAccountRepository currentAccountRepository;
     private final HousingSavingPlanRepository housingSavingPlanRepository;
     private final SavingsAccountRepository savingsAccountRepository;
@@ -23,6 +24,7 @@ public class AccountService {
         this.savingsAccountRepository = savingsAccountRepository;
     }
 
+    @Override
     public int getAllSoldFromHousingSavingsPlan ()
     {
         return housingSavingPlanRepository.getSold();

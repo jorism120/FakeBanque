@@ -1,4 +1,4 @@
-package com.example.bank.repository;
+package com.example.bank.domain.port.out;
 
 import org.springframework.stereotype.Repository;
 

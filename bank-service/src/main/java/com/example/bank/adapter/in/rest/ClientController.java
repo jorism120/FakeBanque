@@ -1,7 +1,7 @@
-package com.example.bank.controller;
+package com.example.bank.adapter.in.rest;
 
-import com.example.bank.model.account.Account;
-import com.example.bank.service.ClientService;
+import com.example.bank.domain.model.account.Account;
+import com.example.bank.application.service.ClientService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,8 +1,8 @@
-package com.example.bank.repository;
+package com.example.bank.domain.port.out;
 
-import com.example.bank.model.account.Account;
-import com.example.bank.model.account.CurrentAccount;
-import com.example.bank.model.account.HousingSavingsPlan;
+import com.example.bank.domain.model.account.Account;
+import com.example.bank.domain.model.account.CurrentAccount;
+import com.example.bank.domain.model.account.HousingSavingsPlan;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

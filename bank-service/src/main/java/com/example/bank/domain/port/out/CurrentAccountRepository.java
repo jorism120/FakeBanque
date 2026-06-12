@@ -1,7 +1,7 @@
-package com.example.bank.repository;
+package com.example.bank.domain.port.out;
 
 
-import com.example.bank.model.account.Account;
+import com.example.bank.domain.model.account.Account;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
