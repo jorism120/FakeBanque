@@ -24,7 +24,7 @@ public class GatewaySecurityConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(auth -> auth
                         .pathMatchers("/auth/**").permitAll()
-                        .pathMatchers("/api/bank/**").hasAuthority("SCOPE_accounts:read")
+                        .pathMatchers("/api/accounts/**").hasAuthority("SCOPE_accounts:read")
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt())
