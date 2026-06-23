@@ -13,9 +13,7 @@ spring:
           predicates:
             - Path=/auth/**
 
-        - id: bank-service
+        - id: account-service
           uri: http://localhost:8082
           predicates:
-            - Path=/api/bank/**
-          filters:
-            - StripPrefix=2
+            - Path=/api/accounts/**

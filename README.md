@@ -3,13 +3,13 @@
 ## Services
 
 - auth-service : génération JWT
-- bank-service : API comptes
+- account-service : API comptes
 - api-gateway : gateway sécurisée
 
 ## Ports
 
 - auth-service : 9001
-- bank-service : 8082
+- account-service : 8082
 - api-gateway : 8083
 
 ## Démarrage
@@ -32,5 +32,5 @@ curl.exe -X POST "http://localhost:8083/auth/login" -H "Content-Type: applicatio
 ## Accounts
 
 ```bash
-curl http://localhost:8083/api/bank/accounts   -H "Authorization: Bearer YOUR_TOKEN"
+curl http://localhost:8083/api/accounts   -H "Authorization: Bearer YOUR_TOKEN"
 ```
