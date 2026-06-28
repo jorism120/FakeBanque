@@ -6,6 +6,9 @@ public class WithdrawalAccount extends Account {
     }
 
     public void withdraw(double amount) {
-        this.balance += amount;
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Le montant du retrait doit être strictement supérieur à zéro.");
+        }
+        this.balance -= amount;
     }
 }

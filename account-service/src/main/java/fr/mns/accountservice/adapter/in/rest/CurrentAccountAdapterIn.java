@@ -14,14 +14,13 @@ public class CurrentAccountAdapterIn implements CurrentAccountUseCase {
     @Override
     public CurrentAccount create(String iban, String clientId, double initialBalance, double overdraft) {
         CurrentAccount account = new CurrentAccount(iban, clientId, initialBalance, overdraft);
-
         return repository.save(account);
     }
 
     @Override
     public CurrentAccount findByIban(String iban) {
         return repository.findByIban(iban)
-                .orElseThrow();
+                .orElse(null);
     }
 
     @Override

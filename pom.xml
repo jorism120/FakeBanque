@@ -11,8 +11,8 @@
 
     <modules>
         <module>auth-service</module>
-        <module>bank-service</module>
         <module>api-gateway</module>
+        <module>account-service</module>
     </modules>
 
     <properties>

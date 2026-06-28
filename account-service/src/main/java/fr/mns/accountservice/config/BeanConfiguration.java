@@ -10,14 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfiguration {
     @Bean
-    public CurrentAccountRepository repository() {
-        return new CurrentAccountAdapterOut();
-    }
-
-    @Bean
     public CurrentAccountUseCase useCase(
             CurrentAccountRepository repository) {
-
         return new CurrentAccountAdapterIn(repository);
     }
 }
