@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="default@localhost" uuid="520b3b35-74cb-4120-8f87-5932a6fad73c">
+    <data-source source="LOCAL" name="database" uuid="520b3b35-74cb-4120-8f87-5932a6fad73c">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:tcp://localhost:9092/default</jdbc-url>
+      <jdbc-url>jdbc:h2:./database</jdbc-url>
       <jdbc-additional-properties>
-        <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-        <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>

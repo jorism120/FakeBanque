@@ -13,6 +13,7 @@
         <module>auth-service</module>
         <module>api-gateway</module>
         <module>account-service</module>
+        <module>client-service</module>
     </modules>
 
     <properties>

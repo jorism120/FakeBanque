@@ -25,6 +25,7 @@ public class GatewaySecurityConfig {
                 .authorizeExchange(auth -> auth
                         .pathMatchers("/auth/**").permitAll()
                         .pathMatchers("/api/accounts/**").hasAuthority("SCOPE_accounts:read")
+                        .pathMatchers("/api/clients/**").hasAuthority("SCOPE_accounts:read")
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt())
