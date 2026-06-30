@@ -23,12 +23,12 @@ public class CurrentAccountController {
 
         String clientId = jwt.getClaimAsString("clientId");
 
-        if (!"C001".equals(clientId)) {
+        CurrentAccount account = useCase.findByIban(iban)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (!clientId.equals(account.getClientId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
-
-        CurrentAccount account =
-                useCase.findByIban(iban);
 
         return new CurrentAccountDto(
                 account.getIban(),
@@ -42,7 +42,7 @@ public class CurrentAccountController {
             @RequestBody CurrentAccountDto request,
             @AuthenticationPrincipal Jwt jwt
     ) {
-        if (useCase.findByIban(request.iban()) != null) {
+        if (useCase.findByIban(request.iban()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Un compte avec cet IBAN existe déjà");
         }
         String clientId = jwt.getClaimAsString("clientId");
@@ -50,7 +50,7 @@ public class CurrentAccountController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le client ID doit être renseigné");
         }
         if (request.balance() == 0.0) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La balance ne peut pas être égale à zéro");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le solde ne peut pas être égal à zéro");
         }
         if (request.overdraft() > 0){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Le découvert est une valeur négative");
@@ -69,24 +69,12 @@ public class CurrentAccountController {
 
         String clientId = jwt.getClaimAsString("clientId");
 
-/*        if ("C001".equals(clientId)) {
-            useCase.deposit(
-                    iban,
-                    request.amount()
-            );
-        } else {
+        CurrentAccount account = useCase.findByIban(iban)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (!clientId.equals(account.getClientId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-        }*/
-
-        CurrentAccount currentAccount = useCase.findByIban(iban);
-
-        if (currentAccount == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte visé n'existe pas");
         }
-
-/*        if (currentAccount.clientId != clientId) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Vous n'avez pas le droit d'agir sur ce compte");
-        }*/
 
         useCase.deposit(iban, request.amount());
     }
@@ -99,27 +87,14 @@ public class CurrentAccountController {
 
         String clientId = jwt.getClaimAsString("clientId");
 
-/*        if ("C001".equals(clientId)) {
-            useCase.withdraw(
-                    iban,
-                    request.amount()
-            );
-        } else {
+        CurrentAccount account = useCase.findByIban(iban)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (!clientId.equals(account.getClientId())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-        }*/
-
-        CurrentAccount currentAccount = useCase.findByIban(iban);
-
-        if (currentAccount == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte visé n'existe pas");
         }
 
-        /*        if (currentAccount.clientId != clientId) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Vous n'avez pas le droit d'agir sur ce compte");
-        }*/
-
         useCase.withdraw(iban, request.amount());
-
     }
 }
 

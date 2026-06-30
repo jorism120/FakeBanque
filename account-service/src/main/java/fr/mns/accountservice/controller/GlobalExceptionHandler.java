@@ -1,5 +1,7 @@
 package fr.mns.accountservice.controller;
 
+import fr.mns.accountservice.application.exceptions.AccountNotFoundException;
+import fr.mns.accountservice.application.exceptions.InvalidAmountException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -30,7 +32,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Interception ds erreurs d'arguments invalides levées par le Domaine
+     * Interception des erreurs d'arguments invalides levées par le Domaine
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(IllegalArgumentException ex) {
@@ -43,6 +45,31 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Gère le compte inexistant
+     */
+    @ExceptionHandler(AccountNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleAccountNotFound(AccountNotFoundException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 404);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
+    /**
+     * Gère un montant incorrect pour une transaction
+     */
+    @ExceptionHandler(InvalidAmountException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidAmount(InvalidAmountException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 400);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.badRequest().body(body);
+    }
 
     /**
      *Gère les erreurs de formattage du JSON
@@ -70,7 +97,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Gère les erreurs interne
+     * Gère les erreurs internes
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleAllUncaughtExceptions(Exception ex) {
