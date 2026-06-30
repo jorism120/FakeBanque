@@ -1,9 +1,9 @@
-package fr.mns.accountservice.adapter.out.persistence;
+package fr.mns.transactionservice.adapter.out.persistence;
 
-import fr.mns.accountservice.adapter.out.persistence.mapper.TransactionAdapterOutMapper;
-import fr.mns.accountservice.adapter.out.persistence.repository.TransactionEntityRepository;
-import fr.mns.accountservice.domain.model.Transaction;
-import fr.mns.accountservice.domain.port.out.TransactionRepository;
+import fr.mns.transactionservice.adapter.out.persistence.mapper.TransactionAdapterOutMapper;
+import fr.mns.transactionservice.adapter.out.persistence.repository.TransactionEntityRepository;
+import fr.mns.transactionservice.domain.model.Transaction;
+import fr.mns.transactionservice.domain.port.out.TransactionRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 

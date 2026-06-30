@@ -1,6 +1,6 @@
-package fr.mns.accountservice.adapter.out.persistence.entity;
+package fr.mns.transactionservice.adapter.out.persistence.entity;
 
-import fr.mns.accountservice.domain.model.TransactionType;
+import fr.mns.transactionservice.domain.model.TransactionType;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;

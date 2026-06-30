@@ -1,4 +1,4 @@
-package fr.mns.accountservice.domain.model;
+package fr.mns.transactionservice.domain.model;
 
 import lombok.Data;
 import java.time.LocalDateTime;

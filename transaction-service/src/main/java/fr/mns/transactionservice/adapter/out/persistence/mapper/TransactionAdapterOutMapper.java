@@ -1,7 +1,7 @@
-package fr.mns.accountservice.adapter.out.persistence.mapper;
+package fr.mns.transactionservice.adapter.out.persistence.mapper;
 
-import fr.mns.accountservice.adapter.out.persistence.entity.TransactionEntity;
-import fr.mns.accountservice.domain.model.Transaction;
+import fr.mns.transactionservice.adapter.out.persistence.entity.TransactionEntity;
+import fr.mns.transactionservice.domain.model.Transaction;
 import org.springframework.stereotype.Component;
 
 @Component

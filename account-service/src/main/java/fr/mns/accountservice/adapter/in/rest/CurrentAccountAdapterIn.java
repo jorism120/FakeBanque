@@ -1,22 +1,17 @@
 package fr.mns.accountservice.adapter.in.rest;
 
 import fr.mns.accountservice.domain.model.CurrentAccount;
-import fr.mns.accountservice.domain.model.Transaction;
-import fr.mns.accountservice.domain.model.TransactionType;
 import fr.mns.accountservice.domain.port.in.CurrentAccountUseCase;
 import fr.mns.accountservice.domain.port.out.CurrentAccountRepository;
-import fr.mns.accountservice.domain.port.out.TransactionRepository;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
+import fr.mns.accountservice.domain.port.out.TransactionRecorderPort;
 
 public class CurrentAccountAdapterIn implements CurrentAccountUseCase {
     private final CurrentAccountRepository repository;
-    private final TransactionRepository transactionRepository;
+    private final TransactionRecorderPort transactionRecorderPort;
 
-    public CurrentAccountAdapterIn(CurrentAccountRepository repository, TransactionRepository transactionRepository) {
+    public CurrentAccountAdapterIn(CurrentAccountRepository repository, TransactionRecorderPort transactionRecorderPort) {
         this.repository = repository;
-        this.transactionRepository = transactionRepository;
+        this.transactionRecorderPort = transactionRecorderPort;
     }
 
     @Override
@@ -32,21 +27,17 @@ public class CurrentAccountAdapterIn implements CurrentAccountUseCase {
 
     @Override
     public void deposit(String iban, double amount) {
-
         CurrentAccount account = findByIban(iban);
         account.deposit(amount);
-
         repository.save(account);
-        transactionRepository.save(new Transaction(UUID.randomUUID().toString(), iban, TransactionType.DEPOSIT, amount, LocalDateTime.now()));
+        transactionRecorderPort.record(iban, "DEPOSIT", amount);
     }
 
     @Override
     public void withdraw(String iban, double amount) {
-
         CurrentAccount account = findByIban(iban);
         account.withdraw(amount);
-
         repository.save(account);
-        transactionRepository.save(new Transaction(UUID.randomUUID().toString(), iban, TransactionType.WITHDRAWAL, amount, LocalDateTime.now()));
+        transactionRecorderPort.record(iban, "WITHDRAWAL", amount);
     }
 }

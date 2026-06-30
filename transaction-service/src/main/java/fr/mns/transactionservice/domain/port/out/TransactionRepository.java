@@ -1,6 +1,6 @@
-package fr.mns.accountservice.domain.port.out;
+package fr.mns.transactionservice.domain.port.out;
 
-import fr.mns.accountservice.domain.model.Transaction;
+import fr.mns.transactionservice.domain.model.Transaction;
 import java.util.List;
 
 public interface TransactionRepository {

@@ -1,6 +1,6 @@
-package fr.mns.accountservice.adapter.out.persistence.repository;
+package fr.mns.transactionservice.adapter.out.persistence.repository;
 
-import fr.mns.accountservice.adapter.out.persistence.entity.TransactionEntity;
+import fr.mns.transactionservice.adapter.out.persistence.entity.TransactionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
