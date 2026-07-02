@@ -1,5 +1,6 @@
 package fr.mns.accountservice.domain.model;
 
+import fr.mns.accountservice.application.exception.InvalidAmountException;
 import lombok.Data;
 
 @Data
@@ -11,6 +12,11 @@ public abstract class Account {
     public Account(String iban, String clientId, double initialBalance) {
         this.iban = iban;
         this.clientId = clientId;
+
+        if (initialBalance < 0.0) {
+            throw new InvalidAmountException("Le montant initial pour ouvrir un compte ne peut pas être négatif.");
+        }
+
         this.balance = initialBalance;
     }
 
@@ -19,6 +25,11 @@ public abstract class Account {
     }
 
     public void deposit(double amount) {
-        this.balance += amount;
+
+        if (amount <= 0) {
+            throw new InvalidAmountException("Vous devez déposer un montant positif.");
+        }
+
+        balance += amount;
     }
 }

@@ -1,4 +1,4 @@
-package fr.mns.accountservice.application.exceptions;
+package fr.mns.accountservice.application.exception;
 
 public class AccountNotFoundException extends RuntimeException {
     public AccountNotFoundException() {
