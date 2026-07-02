@@ -1,5 +1,6 @@
 package fr.mns.accountservice.controller;
 
+import fr.mns.accountservice.application.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -30,7 +31,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Interception ds erreurs d'arguments invalides levées par le Domaine
+     * Interception des erreurs d'arguments invalides levées par le Domaine
      */
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(IllegalArgumentException ex) {
@@ -38,11 +39,74 @@ public class GlobalExceptionHandler {
         body.put("timestamp", LocalDateTime.now().toString());
         body.put("status", HttpStatus.BAD_REQUEST.value());
         body.put("error", "Requête invalide");
-        body.put("message", ex.getMessage()); // Récupère "Le montant du retrait doit être strictement supérieur à zéro."
+        body.put("message", ex.getMessage());
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Gère le compte inexistant
+     */
+    @ExceptionHandler(AccountNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleAccountNotFound(AccountNotFoundException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 404);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
+    /**
+     * Gère un montant incorrect pour une transaction
+     */
+    @ExceptionHandler(InvalidAmountException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidAmount(InvalidAmountException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 400);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.badRequest().body(body);
+    }
+
+    /**
+     * Gère un montant incorrect pour une transaction
+     */
+    @ExceptionHandler(OverdraftExceededException.class)
+    public ResponseEntity<Map<String, Object>> handleOverdraftExceededException(OverdraftExceededException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 400);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.badRequest().body(body);
+    }
+
+    /**
+     * Gère l'exception de création de compte lorsqu'un compte existe déjà
+     */
+    @ExceptionHandler(AccountAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleAccountAlreadyExistsException(AccountAlreadyExistsException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 409);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
+    }
+
+    /**
+     * Gère une action interdite
+     */
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<Map<String, Object>> handleForbiddenException(ForbiddenException ex) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", 403);
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(body);
+    }
 
     /**
      *Gère les erreurs de formattage du JSON
@@ -70,7 +134,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Gère les erreurs interne
+     * Gère les erreurs internes
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleAllUncaughtExceptions(Exception ex) {

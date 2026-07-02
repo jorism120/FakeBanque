@@ -1,18 +1,11 @@
 package fr.mns.accountservice.adapter.out.persistence;
 
-import fr.mns.accountservice.adapter.out.persistence.entity.AccountEntity;
-import fr.mns.accountservice.adapter.out.persistence.entity.AccountType;
 import fr.mns.accountservice.adapter.out.persistence.mapper.AccountAdapterOutMapper;
 import fr.mns.accountservice.adapter.out.persistence.repository.AccountEntityRepository;
 import fr.mns.accountservice.domain.model.Account;
-import fr.mns.accountservice.domain.model.CurrentAccount;
-import fr.mns.accountservice.domain.model.HousingSavingsPlan;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AccountAdapterOut {
 
@@ -36,7 +29,7 @@ public class AccountAdapterOut {
     }
 
     /**
-     * Retourne l'ensembles des comptes associés à un client
+     * Retourne l'ensemble des comptes associés à un client
      */
     public List<Account> getAccounts(String clientId) {
         return accountEntityRepository.findByClientId(clientId).stream()
