@@ -7,6 +7,7 @@ import fr.mns.accountservice.domain.model.CurrentAccount;
 import fr.mns.accountservice.domain.port.out.CurrentAccountRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -38,5 +39,14 @@ public class CurrentAccountAdapterOut implements CurrentAccountRepository {
         return accountEntityRepository.findById(iban)
                 .filter(entity -> entity.getType() == AccountType.CURRENT)
                 .map(currentAccountAdapterOutMapper::mapToDomain);
+    }
+
+    @Override
+    public List<CurrentAccount> findByClientId(String clientId) {
+        return accountEntityRepository.findByClientId(clientId)
+                .stream()
+                .filter(entity -> entity.getType() == AccountType.CURRENT)
+                .map(currentAccountAdapterOutMapper::mapToDomain)
+                .toList();
     }
 }

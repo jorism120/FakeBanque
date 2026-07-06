@@ -2,7 +2,6 @@ package fr.mns.accountservice.adapter.in.rest;
 
 import fr.mns.accountservice.domain.model.CurrentAccount;
 import fr.mns.accountservice.domain.port.in.CurrentAccountUseCase;
-import fr.mns.accountservice.domain.port.out.TransactionRecorderPort;
 
 public class CurrentAccountAdapterIn {
     private final CurrentAccountUseCase service;

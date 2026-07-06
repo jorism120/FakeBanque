@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CurrentAccountAdapterOutMapper {
     /**
-     * Fait le pont entre le entités du domaine et en BDD.
+     * Fait le pont entre les entités du domaine et en BDD.
      */
     public AccountEntity mapToEntity(CurrentAccount account) {
         AccountEntity entity = new AccountEntity();
@@ -22,7 +22,7 @@ public class CurrentAccountAdapterOutMapper {
     }
 
     /**
-     * Fait le pont entre le entités du domaine et en BDD.
+     * Fait le pont entre les entités du domaine et en BDD.
      */
     public CurrentAccount mapToDomain(AccountEntity entity) {
         return new CurrentAccount(
@@ -32,6 +32,4 @@ public class CurrentAccountAdapterOutMapper {
                 entity.getOverdraft() != null ? entity.getOverdraft() : 0.0
         );
     }
-
-
 }

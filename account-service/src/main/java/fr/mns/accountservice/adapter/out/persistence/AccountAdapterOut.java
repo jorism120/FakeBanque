@@ -27,15 +27,6 @@ public class AccountAdapterOut {
                 .map(accountAdapterOutMapper::toDomain)
                 .toList();
     }
-
-    /**
-     * Retourne l'ensemble des comptes associés à un client
-     */
-    public List<Account> getAccounts(String clientId) {
-        return accountEntityRepository.findByClientId(clientId).stream()
-                .map(accountAdapterOutMapper::toDomain)
-                .toList();
-    }
 }
 
 

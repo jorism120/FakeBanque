@@ -11,6 +11,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/accounts")
 public class CurrentAccountController {
@@ -19,6 +21,13 @@ public class CurrentAccountController {
 
     public CurrentAccountController(CurrentAccountUseCase useCase) {
         this.useCase = useCase;
+    }
+
+    @GetMapping
+    public List<CurrentAccount> getAccounts(@AuthenticationPrincipal Jwt jwt) {
+        String clientId = jwt.getClaimAsString("clientId");
+
+        return useCase.getAccounts(clientId);
     }
 
     @GetMapping("/{iban}")

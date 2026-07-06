@@ -9,6 +9,8 @@ import fr.mns.accountservice.domain.port.out.CurrentAccountRepository;
 import fr.mns.accountservice.domain.port.out.TransactionRecorderPort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CurrentAccountService implements CurrentAccountUseCase {
     private final CurrentAccountRepository repository;
@@ -27,6 +29,11 @@ public class CurrentAccountService implements CurrentAccountUseCase {
 
         CurrentAccount account = new CurrentAccount(iban, clientId, initialBalance, overdraft);
         return repository.save(account);
+    }
+
+    @Override
+    public List<CurrentAccount> getAccounts(String clientId) {
+        return repository.findByClientId(clientId);
     }
 
     @Override
