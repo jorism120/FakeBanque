@@ -41,7 +41,7 @@ public class CurrentAccountController {
         );
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public CurrentAccountDto createAccount(@RequestBody CurrentAccountDto request, @AuthenticationPrincipal Jwt jwt) {
         CurrentAccount account = useCase.create(
                 request.iban(),
