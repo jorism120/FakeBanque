@@ -9,15 +9,19 @@ public abstract class Account {
     public String clientId;
     public double balance;
 
-    public Account(String iban, String clientId, double initialBalance) {
+    protected Account() {
+        // pour la réhydratation
+    }
+
+    public Account(String iban, String clientId, double balance) {
         this.iban = iban;
         this.clientId = clientId;
 
-        if (initialBalance < 0.0) {
+        if (balance < 0.0) {
             throw new InvalidAmountException("Le montant initial pour ouvrir un compte ne peut pas être négatif.");
         }
 
-        this.balance = initialBalance;
+        this.balance = balance;
     }
 
     public double checkBalance() {

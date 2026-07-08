@@ -16,11 +16,11 @@ public class AccountAdapterOutMapper {
 
         switch (entity.getType()) {
             case CURRENT:
-                return new CurrentAccount(
+                return CurrentAccount.rehydrate(
                         entity.getIban(),
                         entity.getClientId(),
                         entity.getBalance(),
-                        entity.getOverdraft()
+                        entity.getOverdraft() != null ? entity.getOverdraft() : 0.0
                 );
 
 //            case HOUSING_SAVINGS_PLAN:

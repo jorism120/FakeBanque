@@ -25,7 +25,7 @@ public class CurrentAccountAdapterOutMapper {
      * Fait le pont entre les entités du domaine et en BDD.
      */
     public CurrentAccount mapToDomain(AccountEntity entity) {
-        return new CurrentAccount(
+        return CurrentAccount.rehydrate(
                 entity.getIban(),
                 entity.getClientId(),
                 entity.getBalance(),
