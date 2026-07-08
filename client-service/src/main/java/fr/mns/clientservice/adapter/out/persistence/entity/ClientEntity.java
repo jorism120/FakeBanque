@@ -17,7 +17,9 @@ public class ClientEntity {
     @Column(nullable = false)
     private String lastName;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
-    private String phone;
+    @Column(nullable = false)
+    private String password;
 }

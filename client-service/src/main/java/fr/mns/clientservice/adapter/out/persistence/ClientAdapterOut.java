@@ -37,4 +37,13 @@ public class ClientAdapterOut implements ClientRepository {
         return clientEntityRepository.findById(id)
                 .map(clientAdapterOutMapper::mapToDomain);
     }
+
+    /**
+     * Cherche un client par son email.
+     */
+    @Override
+    public Optional<Client> findByEmail(String email) {
+        return clientEntityRepository.findByEmail(email)
+                .map(clientAdapterOutMapper::mapToDomain);
+    }
 }

@@ -16,7 +16,7 @@ public class ClientAdapterOutMapper {
         entity.setFirstName(client.getFirstName());
         entity.setLastName(client.getLastName());
         entity.setEmail(client.getEmail());
-        entity.setPhone(client.getPhone());
+        entity.setPassword(client.getPassword());
         return entity;
     }
 
@@ -29,7 +29,7 @@ public class ClientAdapterOutMapper {
                 entity.getFirstName(),
                 entity.getLastName(),
                 entity.getEmail(),
-                entity.getPhone()
+                entity.getPassword()
         );
     }
 }

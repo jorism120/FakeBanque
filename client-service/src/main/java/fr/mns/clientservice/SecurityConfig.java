@@ -3,6 +3,7 @@ package fr.mns.clientservice;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -19,7 +20,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/clients/**").hasAuthority("SCOPE_accounts:read")
+                        .requestMatchers(HttpMethod.POST, "/api/clients/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/clients/authenticate").permitAll()
+                        .requestMatchers("/api/clients/**").hasAuthority("SCOPE_accounts:read")
                         .anyRequest().permitAll()
                 )
                 .headers(headers -> headers

@@ -1,5 +1,6 @@
 package fr.mns.clientservice.controller;
 
+import fr.mns.clientservice.application.exception.ClientAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -40,6 +41,18 @@ public class GlobalExceptionHandler {
         body.put("message", ex.getMessage());
 
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Gère l'exception d'inscription lorsqu'un client existe déjà avec cet email
+     */
+    @ExceptionHandler(ClientAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleClientAlreadyExistsException(ClientAlreadyExistsException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("status", HttpStatus.CONFLICT.value());
+        body.put("error", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
     }
 
     /**

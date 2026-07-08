@@ -3,3 +3,7 @@ server:
 
 jwt:
   secret: "change-me-change-me-change-me-change-me"
+
+client:
+  service:
+    url: "http://localhost:8084"
