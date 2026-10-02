@@ -1,4 +1,6 @@
-# Bank Demo - Spring Boot Microservices
+# Bank Demo - Spring Boot Microservices 
+
+## Léa , Enzo, Gregory M, Joris
 
 ## Services
 
