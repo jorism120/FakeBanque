@@ -56,3 +56,7 @@ curl http://localhost:8083/api/accounts   -H "Authorization: Bearer YOUR_TOKEN"
 ## Front
 
 Lien vers le repo du front : https://github.com/Mister-Axolotl/FakeBanqueFrontend qui comprend les instructions d'installation.
+
+## Diapo
+
+Le diapo est à la racine de ce repo avec le nom `architecture_logicielle_M1.pptx`
