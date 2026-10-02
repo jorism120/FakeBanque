@@ -52,3 +52,7 @@ curl http://localhost:8083/api/clients/me   -H "Authorization: Bearer YOUR_TOKEN
 ```bash
 curl http://localhost:8083/api/accounts   -H "Authorization: Bearer YOUR_TOKEN"
 ```
+
+## Front
+
+Lien vers le repo du front : https://github.com/Mister-Axolotl/FakeBanqueFrontend qui comprend les instructions d'installation.
