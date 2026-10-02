@@ -1,4 +1,6 @@
-# Bank Demo - Spring Boot Microservices
+# Bank Demo - Spring Boot Microservices 
+
+## Groupe:  Léa PATEAU, Enzo DA CUNHA ALVES, Gregory MAJSTOROVIC, Joris MICHEL
 
 ## Services
 
@@ -14,7 +16,7 @@
 
 ## Démarrage
 
-Lancer chaque service :
+Se rendre dans les dossiers de chaque microservice (cd auth-service, cd client-service...) et lancer chaque service avec la commande suivante :
 
 ```bash
 mvn spring-boot:run
@@ -50,3 +52,11 @@ curl http://localhost:8083/api/clients/me   -H "Authorization: Bearer YOUR_TOKEN
 ```bash
 curl http://localhost:8083/api/accounts   -H "Authorization: Bearer YOUR_TOKEN"
 ```
+
+## Front
+
+Lien vers le repo du front : https://github.com/Mister-Axolotl/FakeBanqueFrontend qui comprend les instructions d'installation.
+
+## Diapo
+
+Le diapo est à la racine de ce repo avec le nom `architecture_logicielle_M1.pptx`
