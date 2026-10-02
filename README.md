@@ -1,6 +1,6 @@
 # Bank Demo - Spring Boot Microservices 
 
-## Groupe:  Léa , Enzo, Gregory M, Joris
+## Groupe:  Léa PATEAU, Enzo DA CUNHA ALVES, Gregory MAJSTOROVIC, Joris MICHEL
 
 ## Services
 
