@@ -16,7 +16,7 @@
 
 ## Démarrage
 
-Lancer chaque service :
+Se rendre dans les dossiers de chaque microservice (cd auth-service, cd client-service...) et lancer chaque service avec la commande suivante :
 
 ```bash
 mvn spring-boot:run
