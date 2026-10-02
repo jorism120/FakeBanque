@@ -1,0 +1,8 @@
+
+]	java:S125$"<This block of commented-out lines of code should be removed.(Ğäøûÿÿÿÿ8Àèİıä3
+b
+java:S1128"@Remove this unused import 'org.springframework.http.HttpMethod'.(Ê¨Ä¡øÿÿÿÿ8¸ªÑıä3
+N
+java:S1612",Replace this lambda with a method reference.(Ç¬Óñøÿÿÿÿ8“Şıä3
+j
+java:S5738"HRemove this call to a deprecated method, it has been marked for removal.(Ç¬Óñøÿÿÿÿ8“Şıä3

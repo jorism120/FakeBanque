@@ -1,0 +1,9 @@
+2026-06-29 17:38:42.354903+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACCOUNT" not found (this database is empty); SQL statement:
+TRUNCATE TABLE account [42104-240]
+2026-06-29 17:40:02.283641+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACCOUNT" not found (this database is empty); SQL statement:
+TRUNCATE TABLE account [42104-240]
+2026-06-29 17:51:19.294431+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ACCOUNT" not found (this database is empty); SQL statement:
+TRUNCATE TABLE account [42104-240]
